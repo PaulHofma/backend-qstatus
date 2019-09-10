@@ -6,11 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Vraag {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     long id;
+    String username;
 
-    String vraagtext;
-    int aantalAntwoordenGoed;
 }
