@@ -31,10 +31,8 @@ public class QuestionEndpoint {
         }
     }
 
-    @PostMapping
-    public Question makeQuestion(String title, String text){
-        Question q = new Question(title, text);
-        qs.savequestion(q);
-        return q;
+    @PostMapping(value="postquestion")
+    public Question makeQuestion(@RequestBody Question question){
+        return qs.savequestion(question);
     }
 }

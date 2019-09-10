@@ -11,8 +11,8 @@ public class QuestionService {
     @Autowired          //only works on components or subclasses (?) thereof
     QuestionRepository qr;
 
-    public void savequestion(Question q){
-        qr.save(q);
+    public Question savequestion(Question q){
+        return qr.save(q);
     }
 
     public Question getquestion(long questionid) throws QuestionIdUnknownException {
