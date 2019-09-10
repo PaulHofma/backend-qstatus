@@ -16,6 +16,13 @@ public class Question {
     private String title;
     private String text;
 
+    public Question(){}
+
+    public Question(String title, String text){
+        this.title = title;
+        this.text = text;
+    }
+
     public long getId(){
         return id;
     }
@@ -37,6 +44,7 @@ public class Question {
         text = newtext;
         return newtext;
     }
+
 }
 
 

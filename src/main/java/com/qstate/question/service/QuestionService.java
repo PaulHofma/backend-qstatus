@@ -1,15 +1,26 @@
 package com.qstate.question.service;
 
+import com.qstate.question.exceptions.QuestionIdUnknownException;
 import com.qstate.question.model.Question;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.Optional;
 
 @Service
 public class QuestionService {
     @Autowired          //only works on components or subclasses (?) thereof
     QuestionRepository qr;
 
-    public void savequestion(){
-        qr.save(new Question());
+    public void savequestion(Question q){
+        qr.save(q);
+    }
+
+    public Question getquestion(long questionid) throws QuestionIdUnknownException {
+        Optional<Question> q = qr.findById(questionid);
+        if(q.isPresent()){
+            return q.get();
+        } else {
+            throw new QuestionIdUnknownException();
+        }
     }
 }
