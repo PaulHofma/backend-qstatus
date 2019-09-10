@@ -13,26 +13,32 @@ public class QuestionEndpoint {
     @Autowired
     QuestionService qs;
 
-    @GetMapping("question")
+    @GetMapping("questiontest")
     public Question testEndpoint(){
         Question question = new Question("default title", "default text");
         qs.savequestion(question);
         return question;
     }
 
-    @GetMapping(value="/question/{id}")
-    public Question getQuestion(@PathVariable(name="id") long questionid) {
-        try {
-            Question question = qs.getquestion(questionid);
-            return question;
-        } catch(QuestionIdUnknownException e){
-            System.out.println("The requested id does not match a question");
-            return new Question();
-        }
+    @GetMapping(value="/getquestion/{id}")
+    public Question getQuestion(@PathVariable(name="id") long questionid) throws QuestionIdUnknownException {
+        Question question = qs.getquestion(questionid);
+        return question;
     }
 
     @PostMapping(value="postquestion")
     public Question makeQuestion(@RequestBody Question question){
         return qs.savequestion(question);
+    }
+
+    @PutMapping(value="updatequestion")
+    public Question updateQuestion(@RequestBody Question question) throws QuestionIdUnknownException {
+        qs.getquestion(question.getId()); //check if question exists
+        return qs.savequestion(question);
+    }
+
+    @DeleteMapping(value="deletequestion/{id}")
+    public Question deleteQuestion(@PathVariable(name="id") long questionid) throws QuestionIdUnknownException {
+        return qs.deletequestion(questionid);
     }
 }
