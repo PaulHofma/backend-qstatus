@@ -23,4 +23,15 @@ public class QuestionService {
             throw new QuestionIdUnknownException();
         }
     }
+
+    public Question deletequestion(long questionid) throws QuestionIdUnknownException {
+        Optional<Question> q = qr.findById(questionid);
+        if(q.isPresent()){
+            Question question_to_delete = getquestion(questionid);
+            qr.delete(question_to_delete);
+            return question_to_delete;
+        } else {
+            throw new QuestionIdUnknownException();
+        }
+    }
 }

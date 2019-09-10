@@ -19,7 +19,6 @@ public class Question {
     public Question(){}
 
     public Question(String title, String text){
-        this.title = title;
         this.text = text;
     }
 
@@ -27,22 +26,13 @@ public class Question {
         return id;
     }
 
-    public String getTitle(){
-        return title;
-    }
-
     public String getText(){
         return text;
     }
 
-    public String setTitle(String newtitle){
-        title = newtitle;
-        return newtitle;
-    }
-
     public String setText(String newtext){
         text = newtext;
-        return newtext;
+        return text;
     }
 
 }
