@@ -15,7 +15,7 @@ public class QuestionEndpoint {
 
     @GetMapping("questiontest")
     public Question testEndpoint(){
-        Question question = new Question("default title", "default text");
+        Question question = new Question("default text");
         qs.savequestion(question);
         return question;
     }

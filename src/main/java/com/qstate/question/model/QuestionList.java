@@ -11,22 +11,21 @@ public class QuestionList {
     private long id;
 
     @ManyToMany
-    Set<Question> qset;
+    @JoinTable(
+            name = "questions_in_questionlist",
+            joinColumns = @JoinColumn(name = "questionlist_id"),
+            inverseJoinColumns = @JoinColumn(name = "question_id"))
+    private Set<Question> questionSet;
 
     public long getId() {
         return id;
     }
 
-    public Set<Question> getQuestions() {
-        return this.qset;
+    public Set<Question> getQuestionSet() {
+        return questionSet;
     }
 
-    public Set<Question> setQuestions(Set<Question> newqset) {
-        this.qset = newqset;
-        return this.qset;
-    }
-
-    public QuestionList(Set<Question> qset){
-        this.qset = qset;
+    public void setQuestionSet(Set<Question> questionSet) {
+        this.questionSet = questionSet;
     }
 }

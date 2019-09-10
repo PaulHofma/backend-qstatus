@@ -13,26 +13,28 @@ public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String title;
     private String text;
 
-    public Question(){}
+    public Question(){
+        //empty constructor
+    }
 
-    public Question(String title, String text){
+    public Question(String text){
+        //simple constructor
         this.text = text;
     }
 
     public long getId(){
-        return id;
+        return this.id;
     }
 
     public String getText(){
-        return text;
+        return this.text;
     }
 
     public String setText(String newtext){
-        text = newtext;
-        return text;
+        this.text = newtext;
+        return this.text;
     }
 
 }
