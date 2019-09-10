@@ -27,7 +27,7 @@ public class QuestionService {
     public Question deletequestion(long questionid) throws QuestionIdUnknownException {
         Optional<Question> q = qr.findById(questionid);
         if(q.isPresent()){
-            Question question_to_delete = getquestion(questionid);
+            Question question_to_delete = q.get();
             qr.delete(question_to_delete);
             return question_to_delete;
         } else {
