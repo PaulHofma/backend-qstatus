@@ -9,7 +9,17 @@ import javax.persistence.Id;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    long id;
-    String username;
+    private long id;
+    private String username;
 
+    public long getId(){
+        return id;
+    }
+
+    public String getUsername() { return username; }
+
+    public String setUsername(String newusername) {
+        this.username = newusername;
+        return username;
+    }
 }

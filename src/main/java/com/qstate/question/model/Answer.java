@@ -9,6 +9,24 @@ import javax.persistence.Id;
 public class Answer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    long id;
-    long question_id;
+    private long id;
+    private long questionid;
+
+    public long getId() {
+        return id;
+    }
+
+    public long getQuestionid() {
+        return questionid;
+    }
+
+    public long setId(long id) {
+        this.id = id;
+        return id;
+    }
+
+    public long setQuestionid(long questionid) {
+        this.questionid = questionid;
+        return questionid;
+    }
 }
