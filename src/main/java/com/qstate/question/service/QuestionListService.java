@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class QuestionListService {
     @Autowired          //only works on components or subclasses (?) thereof
-    QuestionListRepository qr;
+    QuestionListRepository qlr;
 
 
 }
