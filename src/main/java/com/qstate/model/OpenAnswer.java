@@ -17,7 +17,7 @@ public class OpenAnswer {
 
     private String text;
 
-    private AnswerList answerList;
+//    private AnswerList answerList;
 
     public long getId() {
         return id;
