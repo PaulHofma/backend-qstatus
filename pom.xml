@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.qstate</groupId>
-	<artifactId>question</artifactId>
+	<artifactId>openQuestion</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>question</name>
+	<name>openQuestion</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
