@@ -15,7 +15,7 @@ public class QuestionListEndpoint {
     @GetMapping("questionlisttest")
     public QuestionList testEndpoint(){
         QuestionList ql = new QuestionList();
-        qs.savequestion(ql);
-        return question;
+//        qs.savequestion(ql);
+        return ql;
     }
 }
