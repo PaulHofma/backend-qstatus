@@ -1,4 +1,4 @@
-package com.qstate.question.service;
+package com.qstate.question.persistence;
 
 import com.qstate.question.model.Question;
 import org.springframework.data.repository.CrudRepository;
