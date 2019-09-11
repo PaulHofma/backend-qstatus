@@ -19,7 +19,7 @@ public class OpenQuestionEndpoint {
     }
 
     @PostMapping(value="openquestion")
-    public OpenQuestion makeQuestion(@RequestBody OpenQuestion openQuestion){
+    public OpenQuestion postQuestion(@RequestBody OpenQuestion openQuestion){
         return oqs.saveOpenQuestion(openQuestion);
     }
 
