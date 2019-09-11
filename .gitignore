@@ -34,6 +34,5 @@ build/
 *.properties
 
 ### misc testing files ###
-src/main/java/com/qstate/question/rest/TESTINGENDPOINT.java
-
+src/main/java/com/qstate/rest/TESTINGENDPOINT.java
 *.DS_Store
