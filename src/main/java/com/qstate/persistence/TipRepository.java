@@ -1,6 +1,6 @@
-package com.qstate.question.persistence;
+package com.qstate.persistence;
 
-import com.qstate.question.model.Tip;
+import com.qstate.model.Tip;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 

@@ -1,4 +1,4 @@
-package com.qstate.question.model;
+package com.qstate.model;
 
 public enum QType {
   EQ, FQ, IQ, SQ

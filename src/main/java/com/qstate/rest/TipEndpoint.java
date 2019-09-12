@@ -1,8 +1,8 @@
-package com.qstate.question.rest;
+package com.qstate.rest;
 
-import com.qstate.question.exceptions.TipIdUnknownException;
-import com.qstate.question.model.Tip;
-import com.qstate.question.service.TipService;
+import com.qstate.exceptions.TipIdUnknownException;
+import com.qstate.model.Tip;
+import com.qstate.service.TipService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

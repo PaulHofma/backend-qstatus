@@ -1,4 +1,4 @@
-package com.qstate.question.model;
+package com.qstate.model;
 
 import javax.persistence.*;
 
