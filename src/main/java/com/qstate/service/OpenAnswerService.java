@@ -1,7 +1,6 @@
 package com.qstate.service;
 
 import com.qstate.exceptions.AnswerIdUnknownException;
-import com.qstate.exceptions.UserIdUnknownException;
 import com.qstate.model.OpenAnswer;
 import com.qstate.persistence.OpenAnswerRepository;
 import org.springframework.beans.factory.annotation.Autowired;

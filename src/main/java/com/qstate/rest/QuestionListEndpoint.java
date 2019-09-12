@@ -1,6 +1,7 @@
 package com.qstate.rest;
 
 import com.qstate.exceptions.QuestionListIdUnknownException;
+import com.qstate.model.OpenQuestion;
 import com.qstate.model.Question;
 import com.qstate.model.QuestionList;
 import com.qstate.service.QuestionListService;
@@ -21,9 +22,9 @@ public class QuestionListEndpoint {
     @PostMapping(value="questionlist/test")
     public QuestionList testQuestionList() {
         List<Question> ql = new ArrayList<Question>();
-        ql.add(qs.saveQuestion(new Question("Dit is vraag 1")));
-        ql.add(qs.saveQuestion(new Question("Dit is vraag 2")));
-        ql.add(qs.saveQuestion(new Question("Dit is vraag 3")));
+        ql.add(qs.saveQuestion(new OpenQuestion("Dit is vraag 1")));
+        ql.add(qs.saveQuestion(new OpenQuestion("Dit is vraag 2")));
+        ql.add(qs.saveQuestion(new OpenQuestion("Dit is vraag 3")));
         QuestionList questionList = new QuestionList();
         questionList.setQuestionList(ql);
         return qls.saveQuestionList(questionList);
