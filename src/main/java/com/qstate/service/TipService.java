@@ -1,8 +1,8 @@
-package com.qstate.question.service;
+package com.qstate.service;
 
-import com.qstate.question.exceptions.TipIdUnknownException;
-import com.qstate.question.model.Tip;
-import com.qstate.question.persistence.TipRepository;
+import com.qstate.exceptions.TipIdUnknownException;
+import com.qstate.model.Tip;
+import com.qstate.persistence.TipRepository;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

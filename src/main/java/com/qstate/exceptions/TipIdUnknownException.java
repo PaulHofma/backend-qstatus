@@ -1,4 +1,4 @@
-package com.qstate.question.exceptions;
+package com.qstate.exceptions;
 
 public class TipIdUnknownException extends Exception {
 
