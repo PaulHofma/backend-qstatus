@@ -4,6 +4,7 @@ package com.qstate.model;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class AnswerList {
@@ -15,6 +16,9 @@ public class AnswerList {
     @ManyToOne
 //    @JoinTable(name="answerlists_from_trainee")
     private Trainee trainee;
+
+    @OneToMany
+    List<Answer> answers;
 
     public long getId() {
         return id;
@@ -34,7 +38,6 @@ public class AnswerList {
 
 
     public double calcIQ() {
-        //ADD FUNCTIONALITY
         return 0.0;
     }
 
