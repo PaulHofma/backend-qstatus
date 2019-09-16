@@ -7,6 +7,10 @@ public class SmileyQuestion extends Question {
     private int minRange;
     private int maxRange;
 
+    public SmileyQuestion(){
+        this.setQuestionType(QuestionType.SMILEY);
+    }
+
     public int getMinRange() {
         return minRange;
     }

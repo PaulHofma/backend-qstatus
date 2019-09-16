@@ -8,8 +8,24 @@ public class ClosedQuestion extends Question {
     private double iqWeight;
     private double sqWeight;
     private double fqWeight;
-    private int rangeMin;
+    private int rangeMin; // default range = 0-5!
     private int rangeMax;
+
+    ClosedQuestion(){
+        this.rangeMin = 0;
+        this.rangeMax = 5;
+        this.setQuestionType(QuestionType.CLOSED);
+    }
+
+    ClosedQuestion(double eqWeight, double iqWeight, double sqWeight, double fqWeight){
+        this.eqWeight = eqWeight;
+        this.iqWeight = iqWeight;
+        this.sqWeight = sqWeight;
+        this.fqWeight = fqWeight;
+        this.rangeMin = 0;
+        this.rangeMax = 5;
+        this.setQuestionType(QuestionType.CLOSED);
+    }
 
     public double getEqWeight() {
         return eqWeight;
