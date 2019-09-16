@@ -1,10 +1,13 @@
 package com.qstate.model;
 
 
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class AnswerList {
@@ -18,7 +21,7 @@ public class AnswerList {
     private Trainee trainee;
 
     @OneToMany
-    List<Answer> answers;
+    private List<Answer> answers;
 
     public long getId() {
         return id;
