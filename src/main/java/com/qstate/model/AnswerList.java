@@ -41,7 +41,6 @@ public class AnswerList {
 
 
     public double calcIQ() {
-        //ADD FUNCTIONALITY
         return 0.0;
     }
 
