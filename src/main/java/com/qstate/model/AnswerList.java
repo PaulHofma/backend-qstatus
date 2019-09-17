@@ -1,12 +1,8 @@
 package com.qstate.model;
 
-
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
@@ -17,49 +13,98 @@ public class AnswerList {
     private long id;
 
     @ManyToOne
-//    @JoinTable(name="answerlists_from_trainee")
     private Trainee trainee;
 
-    @OneToMany
+    @OneToMany(mappedBy = "id")
     private List<Answer> answers;
 
     public long getId() {
         return id;
     }
-
     public void setId(long id) {
         this.id = id;
     }
 
-    public User getTrainee() {
+    public Trainee getTrainee() {
         return trainee;
     }
-
     public void setTrainee(Trainee trainee) {
         this.trainee = trainee;
     }
 
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
+    }
 
     public double calcIQ() {
-        return 0.0;
+        double score = 0;
+        int counter = 0;
+        for(Answer answer : this.answers){
+            Question question = answer.getQuestion();
+            if(question.getQuestionType() == QuestionType.CLOSED){
+                ClosedQuestion closedQuestion = (ClosedQuestion)question;
+                ClosedAnswer closedAnswer = (ClosedAnswer)answer;
+                counter++;
+                score += (closedQuestion.getIqWeight() * closedAnswer.getResponse()) / closedQuestion.getRange();
+            }
+        }
+        if(counter == 0){
+            return 0;
+        }
+        return score/counter;
     }
-
     public double calcEQ() {
-        //ADD FUNCTIONALITY
-        return 0.0;
+        double score = 0;
+        int counter = 0;
+        for(Answer answer : this.answers){
+            Question question = answer.getQuestion();
+            if(question.getQuestionType() == QuestionType.CLOSED){
+                ClosedQuestion closedQuestion = (ClosedQuestion)question;
+                ClosedAnswer closedAnswer = (ClosedAnswer)answer;
+                counter++;
+                score += (closedQuestion.getEqWeight() * closedAnswer.getResponse()) / closedQuestion.getRange();
+            }
+        }
+        if(counter == 0){
+            return 0;
+        }
+        return score/counter;
     }
-
     public double calcSQ() {
-        //ADD FUNCTIONALITY
-        return 0.0;
+        double score = 0;
+        int counter = 0;
+        for(Answer answer : this.answers){
+            Question question = answer.getQuestion();
+            if(question.getQuestionType() == QuestionType.CLOSED){
+                ClosedQuestion closedQuestion = (ClosedQuestion)question;
+                ClosedAnswer closedAnswer = (ClosedAnswer)answer;
+                counter++;
+                score += (closedQuestion.getSqWeight() * closedAnswer.getResponse()) / closedQuestion.getRange();
+            }
+        }
+        if(counter == 0){
+            return 0;
+        }
+        return score/counter;
     }
-
     public double calcFQ() {
-        //ADD FUNCTIONALITY
-        return 0.0;
-    }
-
-    public double[] calcQArray(){
-        return new double[]{calcIQ(), calcEQ(), calcSQ(), calcFQ()};
+        double score = 0;
+        int counter = 0;
+        for(Answer answer : this.answers){
+            Question question = answer.getQuestion();
+            if(question.getQuestionType() == QuestionType.CLOSED){
+                ClosedQuestion closedQuestion = (ClosedQuestion)question;
+                ClosedAnswer closedAnswer = (ClosedAnswer)answer;
+                counter++;
+                score += (closedQuestion.getFqWeight() * closedAnswer.getResponse()) / closedQuestion.getRange();
+            }
+        }
+        if(counter == 0){
+            return 0;
+        }
+        return score/counter;
     }
 }

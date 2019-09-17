@@ -27,6 +27,10 @@ public class QuestionListService {
         }
     }
 
+    public Iterable<QuestionList> getAllQuestionLists() {
+        return qlr.findAll();
+    }
+
     public QuestionList deleteQuestionList(long questionListId) throws QuestionListIdUnknownException {
         Optional<QuestionList> q = qlr.findById(questionListId);
         if(q.isPresent()){
