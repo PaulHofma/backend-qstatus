@@ -1,6 +1,7 @@
 package com.qstate.rest;
 
 import com.qstate.exceptions.QuestionListIdUnknownException;
+import com.qstate.model.ClosedQuestion;
 import com.qstate.model.OpenQuestion;
 import com.qstate.model.Question;
 import com.qstate.model.QuestionList;
@@ -23,6 +24,8 @@ public class QuestionListEndpoint {
     public QuestionList testQuestionList() {
         List<Question> ql = new ArrayList<Question>();
         ql.add(qs.saveQuestion(new OpenQuestion("Dit is vraag 1")));
+        ql.add(qs.saveQuestion(new ClosedQuestion("Dit is vraag 3")));
+        ql.add(qs.saveQuestion(new ClosedQuestion("Dit is vraag 3")));
         ql.add(qs.saveQuestion(new OpenQuestion("Dit is vraag 2")));
         ql.add(qs.saveQuestion(new OpenQuestion("Dit is vraag 3")));
         QuestionList questionList = new QuestionList();
