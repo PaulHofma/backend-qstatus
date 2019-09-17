@@ -37,5 +37,8 @@ public class QuestionListService {
             throw new QuestionListIdUnknownException();
         }
     }
+    public Iterable<QuestionList> getAllQuestionLists(){
+        return qlr.findAll();
+    }
 
 }
