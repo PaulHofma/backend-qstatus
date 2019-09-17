@@ -42,10 +42,12 @@ public class QuestionListEndpoint {
         QuestionList questionList = qls.getQuestionList(questionListId);
         return questionList;
     }
+
     @GetMapping(value="/questionlist/all")
     public Iterable<QuestionList> getAllQuestionLists() {
         return qls.getAllQuestionLists();
     }
+
     @PostMapping(value="questionlist")
     public QuestionList makeQuestionList(@RequestBody QuestionList questionList){
         return qls.saveQuestionList(questionList);
