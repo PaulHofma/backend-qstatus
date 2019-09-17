@@ -45,8 +45,7 @@ public class QuestionListEndpoint {
 
     @GetMapping(value="/questionlist/all")
     public Iterable<QuestionList> getAllQuestionLists() {
-        Iterable<QuestionList> allQuestionLists = qls.getAllQuestionLists();
-        return allQuestionLists;
+        return qls.getAllQuestionLists();
     }
 
     @PostMapping(value="questionlist")
