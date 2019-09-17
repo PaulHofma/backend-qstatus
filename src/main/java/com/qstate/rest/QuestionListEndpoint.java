@@ -23,11 +23,15 @@ public class QuestionListEndpoint {
     @PostMapping(value="questionlist/test")
     public QuestionList testQuestionList() {
         List<Question> ql = new ArrayList<Question>();
-        ql.add(qs.saveQuestion(new OpenQuestion("Dit is vraag 1")));
-        ql.add(qs.saveQuestion(new ClosedQuestion("Dit is vraag 3")));
-        ql.add(qs.saveQuestion(new ClosedQuestion("Dit is vraag 3")));
-        ql.add(qs.saveQuestion(new OpenQuestion("Dit is vraag 2")));
-        ql.add(qs.saveQuestion(new OpenQuestion("Dit is vraag 3")));
+        ql.add(qs.saveQuestion(new OpenQuestion("Hoe voel je je vandaag?")));
+        ql.add(qs.saveQuestion(new ClosedQuestion("Stelling: ik heb genoeg gesport.", 0.0, 0.0,
+                0.0, 1.0, 0, 4)));
+        ql.add(qs.saveQuestion(new ClosedQuestion("Stelling: ik heb genoeg mijn vrienden gesproken.", 1.0,
+                0.0,0.0, 0.0, 0, 4)));
+        ql.add(qs.saveQuestion(new ClosedQuestion("Stelling: ik heb mezelf intellectueel ontwikkeld.", 0.0,
+                1.0,0.0, 0.0, 0, 4)));
+        ql.add(qs.saveQuestion(new ClosedQuestion("Stelling: ik voel me vol vertrouwen in de toekomst.", 0.0, 0.0,
+                1.0, 0.0, 0, 4)));
         QuestionList questionList = new QuestionList();
         questionList.setQuestionList(ql);
         return qls.saveQuestionList(questionList);
@@ -38,7 +42,10 @@ public class QuestionListEndpoint {
         QuestionList questionList = qls.getQuestionList(questionListId);
         return questionList;
     }
-
+    @GetMapping(value="/questionlist/all")
+    public Iterable<QuestionList> getAllQuestionLists() {
+        return qls.getAllQuestionLists();
+    }
     @PostMapping(value="questionlist")
     public QuestionList makeQuestionList(@RequestBody QuestionList questionList){
         return qls.saveQuestionList(questionList);
