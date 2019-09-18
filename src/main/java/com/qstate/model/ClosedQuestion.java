@@ -76,4 +76,8 @@ public class ClosedQuestion extends Question {
     public void setRangeMax(int rangeMax) {
         this.rangeMax = rangeMax;
     }
+
+    public int getRange(){
+        return rangeMax - rangeMin;
+    }
 }

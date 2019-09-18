@@ -3,8 +3,6 @@ package com.qstate.model;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 public class Answer {
@@ -14,11 +12,9 @@ public class Answer {
     private long id;
 
     @ManyToOne
-//    @JoinTable(name = "answers_of_question")
     private Question question;
 
     @ManyToOne
-//    @JoinTable(name="answers_in_answerlist")
     private AnswerList answerList;
 
     private String text;
@@ -26,7 +22,6 @@ public class Answer {
     public long getId() {
         return id;
     }
-
     public void setId(long id) {
         this.id = id;
     }
@@ -34,7 +29,6 @@ public class Answer {
     public Question getQuestion() {
         return question;
     }
-
     public void setQuestion(Question question) {
         this.question = question;
     }
@@ -42,7 +36,6 @@ public class Answer {
     public String getText() {
         return text;
     }
-
     public void setText(String text) {
         this.text = text;
     }
@@ -50,7 +43,6 @@ public class Answer {
     public AnswerList getAnswerList() {
         return answerList;
     }
-
     public void setAnswerList(AnswerList answerList) {
         this.answerList = answerList;
     }
